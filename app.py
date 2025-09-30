@@ -12,7 +12,7 @@ def contact():
     email = request.form['email']
     message = request.form['message']
 
-    print("Mensaje de {name} ({email}): {message}")
+    print(f"Mensaje de {name} ({email}): {message}")
     return "Gracias por tu mensaje"
 
 if __name__ == '__main__':
