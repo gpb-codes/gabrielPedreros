@@ -339,7 +339,7 @@ body {
 .about-content {
   max-width: 750px;
   font-size: 1.15rem;
-  color: var(--gris);
+  color: var(--blanco);
   line-height: 1.9;
   text-align: center;
 }
