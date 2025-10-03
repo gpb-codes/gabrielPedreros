@@ -185,8 +185,8 @@ body {
   margin: 0 auto;
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 2 por columna aprox */
-  margin-top: 2rem; /* agrega espacio entre el título y las tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+  margin-top: 2rem;
 }
 
 /* =================== Título de proyectos =================== */
@@ -215,7 +215,7 @@ body {
   border-radius: 2px;
 }
 
-/* Tarjetas de proyecto */
+
 .project-card {
 
   background: #1a1a1a;
@@ -232,7 +232,7 @@ body {
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
 }
 
-/* Contenido dentro de la tarjeta */
+
 .project-content {
   padding: 1rem;
   text-align: left;
@@ -268,7 +268,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Botón */
 .button {
   display: inline-block;
   padding: 0.5rem 1rem;
