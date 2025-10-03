@@ -1,54 +1,41 @@
 /* =================== VARIABLES =================== */
 :root {
-  --fondo: #090712;
-  --secundario: #52446D;
-  --intermedio: #966AAD;
-  --acento: #C79ACD;
   --blanco: #ffffff;
-  --gris: #cccccc;
-  --fuente: "Rancho", cursive;
+  --negro: #111111;
+  --morado: #00ccff;
+  --gris: #666666;
 }
 
-/* =================== RESETEO =================== */
+/* =================== ESTILOS BASE =================== */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--fuente), sans-serif;
-  background: var(--fondo);
+  font-family: "Arial", sans-serif;
+  background: var(--negro);
   color: var(--blanco);
   line-height: 1.6;
-  position: relative;
-  overflow-x: hidden;
 }
 
-/* =================== PARTICULAS =================== */
-#particles-js {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
 }
 
 /* =================== HEADER =================== */
 .header {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 100;
-  padding: 1rem 2rem;
+  background: transparent;
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: background 0.3s ease, padding 0.3s ease;
 }
 
 .header-inner {
@@ -57,188 +44,291 @@ body {
   align-items: center;
 }
 
-.brand {
-  font-size: 2rem;
-  color: var(--acento);
+.header.scrolled {
+  background: var(--negro);
+  padding: 0.5rem 0;
 }
 
-/* =================== NAV =================== */
+/* Logo y brand */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand {
+  color: var(--blanco);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navegación */
 .nav a {
   color: var(--blanco);
-  margin: 0 1rem;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav a:hover {
-  color: var(--acento);
+  color: var(--morado);
+  transform: translateY(-2px);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--morado);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
 }
 
 /* =================== HERO =================== */
 .hero {
-  min-height: 100vh;
+  position: relative;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 4rem 2rem;
+  background: center/cover no-repeat;
+  color: var(--blanco);
 }
 
-.hero-inner h1 {
-  font-size: 9vh;
-  color: transparent;
-  text-shadow:
-    1px 1px 0 var(--acento),
-   -1px 1px 0 var(--acento),
-    1px -1px 0 var(--acento),
-   -1px -1px 0 var(--acento);
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(17, 17, 17, 0.6);
+  z-index: 1;
 }
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+.hero-inner h1 {
+  font-size: 7vh;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--blanco);
+  -webkit-text-fill-color: transparent; 
+}
+
 
 .hero-inner p {
-  margin-top: 1rem;
   font-size: 1.3rem;
-  color: var(--gris);
-}
-
-/* =================== REDES =================== */
-.social-red {
-  margin-top: 2rem;
-}
-
-.social-red a {
-  margin: 0 0.7rem;
-  font-size: 1.8rem;
   color: var(--blanco);
-  transition: color 0.3s, transform 0.3s;
+ color: white;
+
 }
 
-.social-red a:hover {
-  color: var(--acento);
-  transform: scale(1.2);
+.hero a {
+  display: inline-block;
+  background: transparent;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
+
+.hero a:hover {
+  background: #295178bb;
+}
+
+.social-red {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+  border-radius: 50%;
+}
+
+.social-red .icon {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-red .icon:hover {
+  transform: scale(1.3);
+  color: #ffffff; /* Morado vibrante */
+  border-radius: 50%;
+}
+
 
 /* =================== PROYECTOS =================== */
-.projects {
-  padding: 6rem 2rem;
+/* Espacio entre título y tarjetas */
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 2 por columna aprox */
+  margin-top: 2rem; /* agrega espacio entre el título y las tarjetas */
 }
 
+/* =================== Título de proyectos =================== */
 .projects-title {
-  text-align: center;
-  margin-bottom: 3rem;
+  width: 100%; 
+  text-align: center; 
+  margin-bottom: 3rem; 
 }
 
 .projects-title h2 {
   font-size: 2.5rem;
-  color: var(--acento);
+  color: var(--blanco);
+  font-weight: 700;
+  display: block;
+  position: relative;
 }
 
-.projects-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+.projects-title h2::after {
+  content: "";
+  display: block;
+  width: 5%; 
+  height: 5px; 
+  background: var(--morado); 
+
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
 }
 
+/* Tarjetas de proyecto */
 .project-card {
+
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  transition: transform 0.3s;
+  flex-direction: column-reverse;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Contenido dentro de la tarjeta */
+.project-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--gris);
+  line-height: 1.5;
+  max-height: 3.5em; 
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.project-card:hover p {
+  max-height: 100vh; 
 }
 
 .project-card img {
-  width: 40%;
-  border-radius: 12px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 0 12px 12px;
+  transition: transform 0.3s ease;
 }
 
-.project-content {
-  flex: 1;
+.project-card:hover img {
+  transform: scale(1.05);
 }
 
-.project-content h3 {
-  color: var(--acento);
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.project-content p {
-  color: var(--gris);
-  margin-bottom: 1.5rem;
-}
-
+/* Botón */
 .button {
   display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: var(--acento);
-  color: var(--fondo);
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--blanco);
+  border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: 2rem; 
 }
 
 .button:hover {
-  background: var(--intermedio);
+  color: #4b3fc3;
 }
 
-/* =================== SOBRE MI =================== */
-.about {
-  padding: 6rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
-.about-title h2 {
-  font-size: 2.5rem;
-  color: var(--acento);
-  margin-bottom: 2rem;
-}
-
-.about-inner {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.about-content {
-  max-width: 600px;
-}
-
-.about-content p {
-  color: var(--gris);
-  font-size: 1.2rem;
-}
-
-.about img {
-  width: 280px;
-  border-radius: 50%;
-  border: 4px solid var(--acento);
-}
-
-/* =================== RESPONSIVE =================== */
-@media (max-width: 768px) {
+@media(min-width: 768px) {
   .project-card {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
   }
-
   .project-card img {
-    width: 100%;
+    width: 40%;
+    border-radius: 12px 0 0 12px;
+    margin-right: 1rem;
   }
-
-  .hero-inner h1 {
-    font-size: 6vh;
+  .project-content {
+    width: 60%;
   }
 }
+
+
+
+
+/* =================== RESPONSIVIDAD =================== */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .nav a {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+  }
+  .about h1,
+  .contact h1 {
+    font-size: 2rem;
+  }
+  .about p,
+  .contact p {
+    font-size: 1rem;
+  }
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat;
+  z-index: -1;
+}
+
