@@ -1,16 +1,19 @@
 /* =================== VARIABLES =================== */
 :root {
+  --fondo: #090712;
+  --secundario: #52446D;
+  --intermedio: #966AAD;
+  --acento: #C79ACD;
   --blanco: #ffffff;
-  --negro: #111111;
-  --morado: #00ccff;
-  --gris: #aaaaaa;
+  --gris: #cccccc;
+  --fuente: "Rancho", cursive;
 }
 
-/* =================== ESTILOS BASE =================== */
+/* =================== RESETEO =================== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -18,41 +21,34 @@ html {
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  background: var(--negro);
+  font-family: var(--fuente), sans-serif;
+  background: var(--fondo);
   color: var(--blanco);
   line-height: 1.6;
   position: relative;
-  z-index: 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 1rem;
+  overflow-x: hidden;
 }
 
 /* =================== PARTICULAS =================== */
 #particles-js {
-  position: fixed;   /* fijo en toda la pantalla */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;       /* detrás de todo */
-  pointer-events: none; /* no bloquea clics */
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* =================== HEADER =================== */
 .header {
-  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
-  background: transparent;
-  padding: 1rem 0;
-  z-index: 1000;
-  transition: background 0.3s ease, padding 0.3s ease;
+  z-index: 100;
+  padding: 1rem 2rem;
 }
 
 .header-inner {
@@ -61,285 +57,188 @@ body {
   align-items: center;
 }
 
-.header.scrolled {
-  background: rgba(17, 17, 17, 0.9);
-  padding: 0.5rem 0;
-  backdrop-filter: blur(8px);
-}
-
-/* Logo */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .brand {
-  color: var(--blanco);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 2rem;
+  color: var(--acento);
 }
 
-/* Navegación */
+/* =================== NAV =================== */
 .nav a {
   color: var(--blanco);
+  margin: 0 1rem;
   text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav a:hover {
-  color: var(--morado);
-  transform: translateY(-2px);
-}
-
-.nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--morado);
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.nav a:hover::after,
-.nav a.active::after {
-  width: 100%;
+  color: var(--acento);
 }
 
 /* =================== HERO =================== */
 .hero {
-  position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  color: var(--blanco);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 17, 17, 0.6);
-  z-index: 1;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 1rem;
+  padding: 4rem 2rem;
 }
 
 .hero-inner h1 {
-  font-size: 7vh;
+  font-size: 9vh;
   color: transparent;
-  -webkit-text-stroke: 2px var(--blanco);
-  -webkit-text-fill-color: transparent;
+  text-shadow:
+    1px 1px 0 var(--acento),
+   -1px 1px 0 var(--acento),
+    1px -1px 0 var(--acento),
+   -1px -1px 0 var(--acento);
 }
 
 .hero-inner p {
+  margin-top: 1rem;
   font-size: 1.3rem;
-  color: var(--blanco);
-}
-
-.hero a {
-  display: inline-block;
-  background: transparent;
-  color: var(--blanco);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.hero a:hover {
-  background: #295178bb;
-}
-
-/* Redes Sociales */
-.social-red {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.social-red .icon {
-  font-size: 25px;
-  color: var(--blanco);
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-red .icon:hover {
-  transform: scale(1.3);
-  color: var(--morado);
-}
-
-/* =================== SOBRE MÍ =================== */
-.about {
-  padding: 5rem 1rem;
-  background-color: rgba(17, 17, 17, 0.4);
-}
-
-.about-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.about-title h2 {
-  font-size: 2.5rem;
-  color: var(--blanco);
-  font-weight: 700;
-  position: relative;
-}
-
-.about-title h2::after {
-  content: "";
-  display: block;
-  width: 5%;
-  height: 4px;
-  background: var(--morado);
-  margin: 0.5rem auto 0 auto;
-  border-radius: 2px;
-}
-
-.about-inner {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.about-content {
-  font-size: 1.1rem;
   color: var(--gris);
-  line-height: 1.8;
-  text-align: center;
 }
 
-.about img {
-  width: 250px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+/* =================== REDES =================== */
+.social-red {
+  margin-top: 2rem;
 }
 
-.about img:hover {
-  transform: scale(1.05);
+.social-red a {
+  margin: 0 0.7rem;
+  font-size: 1.8rem;
+  color: var(--blanco);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-red a:hover {
+  color: var(--acento);
+  transform: scale(1.2);
 }
 
 /* =================== PROYECTOS =================== */
 .projects {
-  padding: 5rem 1rem;
-}
-
-.projects-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  margin-top: 2rem;
+  padding: 6rem 2rem;
 }
 
 .projects-title {
-  width: 100%;
   text-align: center;
   margin-bottom: 3rem;
 }
 
 .projects-title h2 {
   font-size: 2.5rem;
-  color: var(--blanco);
-  font-weight: 700;
-  position: relative;
+  color: var(--acento);
 }
 
-.projects-title h2::after {
-  content: "";
-  display: block;
-  width: 5%;
-  height: 5px;
-  background: var(--morado);
-  margin: 0.5rem auto 0 auto;
-  border-radius: 2px;
+.projects-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .project-card {
-  background: #1a1a1a;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   display: flex;
-  flex-direction: column-reverse;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-}
-
-.project-content {
-  padding: 1rem;
-  text-align: left;
-}
-
-.project-card h3 {
-  font-size: 1.3rem;
-  color: var(--blanco);
-  margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  font-size: 0.95rem;
-  color: var(--gris);
-  line-height: 1.5;
-  max-height: 3.5em;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.project-card:hover p {
-  max-height: 100vh;
 }
 
 .project-card img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0 0 12px 12px;
-  transition: transform 0.3s ease;
+  width: 40%;
+  border-radius: 12px;
 }
 
-.project-card:hover img {
-  transform: scale(1.05);
+.project-content {
+  flex: 1;
+}
+
+.project-content h3 {
+  color: var(--acento);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.project-content p {
+  color: var(--gris);
+  margin-bottom: 1.5rem;
 }
 
 .button {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  color: var(--blanco);
-  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  background: var(--acento);
+  color: var(--fondo);
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease, color 0.3s ease;
-  margin-top: 1rem;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 .button:hover {
-  color: var(--morado);
+  background: var(--intermedio);
+}
+
+/* =================== SOBRE MI =================== */
+.about {
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-title h2 {
+  font-size: 2.5rem;
+  color: var(--acento);
+  margin-bottom: 2rem;
+}
+
+.about-inner {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content p {
+  color: var(--gris);
+  font-size: 1.2rem;
+}
+
+.about img {
+  width: 280px;
+  border-radius: 50%;
+  border: 4px solid var(--acento);
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-card img {
+    width: 100%;
+  }
+
+  .hero-inner h1 {
+    font-size: 6vh;
+  }
 }
