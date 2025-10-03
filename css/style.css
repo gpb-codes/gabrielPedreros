@@ -401,10 +401,10 @@ body {
   z-index: -1;
 }
 
-/* =================== RESPONSIVO SOBRE MÍ =================== */
+/* =================== RESPONSIVO SOBRE MÍ (imagen abajo del texto) =================== */
 @media (max-width: 768px) {
   .about-inner {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
   }
 
@@ -416,7 +416,14 @@ body {
 
   .about img {
     width: 200px;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .about img:hover {
+    transform: scale(1.05);
   }
 
   .about-title h2 {
