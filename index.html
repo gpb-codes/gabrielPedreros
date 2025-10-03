@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gabriel Pedreros | Portafolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/logo.png" type="image/png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rancho&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo-container">
+          <h1 class="brand">ガブP</h1>
+        </div>
+        <nav class="nav">
+          <a href="#about">Sobre mí</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#contact">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    <div id="particles-js"></div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>&lt;Gabriel Pedreros/&gt;</h1>
+        <p>Estudiante de programación y futuro desarrollador web.</p>
+        <!-- Font Awesome para los íconos -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <div class="social-red">
+          <a
+            href="https://www.instagram.com/tu_usuario"
+            class="icon ig"
+            target="_blank"
+            title="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tu_usuario"
+            class="icon linkedin"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://discord.com/users/tu_usuario"
+            class="icon discord"
+            target="_blank"
+            title="Discord"
+          >
+            <i class="fab fa-discord"></i>
+          </a>
+          <a
+            href="https://github.com/tu_usuario"
+            class="icon github"
+            target="_blank"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== PROYECTOS =================== -->
+    <section class="projects" id="projects">
+      <div class="projects-title">
+        <h2>Proyectos</h2>
+      </div>
+      <div class="projects-inner">
+        <!-- Proyecto 1 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 1</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto1.png" alt="Proyecto 1" />
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 2</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto2.png" alt="Proyecto 2" />
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80 },
+          color: { value: "#ffffff" },
+          shape: { type: ["triangle", "circle", "polygon"] },
+          opacity: { value: 0.5 },
+          size: { value: 2.7 },
+          line_linked: {
+            enable: true,
+            distance: 140,
+            color: "#FFFFFF",
+            opacity: 1.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 3,
+            direction: "none",
+            out_mode: "out",
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+          },
+          modes: {
+            repulse: { distance: 100 },
+            push: { particles_nb: 4 },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+/* =================== VARIABLES =================== */
+:root {
+  --blanco: #ffffff;
+  --negro: #111111;
+  --morado: #6c63ff;
+  --gris: #666666;
+}
+
+/* =================== ESTILOS BASE =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: var(--negro);
+  color: var(--blanco);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+/* =================== HEADER =================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header.scrolled {
+  background: var(--negro);
+  padding: 0.5rem 0;
+}
+
+/* Logo y brand */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand {
+  color: var(--blanco);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navegación */
+.nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--morado);
+  transform: translateY(-2px);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--morado);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+/* =================== HERO =================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: center/cover no-repeat;
+  color: var(--blanco);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(17, 17, 17, 0.6);
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+.hero-inner h1 {
+  font-size: 7vh;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--blanco);
+  -webkit-text-fill-color: transparent; 
+}
+
+
+.hero-inner p {
+  font-size: 1.3rem;
+  color: var(--blanco);
+ color: white;
+
+}
+
+.hero a {
+  display: inline-block;
+  background: transparent;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero a:hover {
+  background: #4b2978bb;
+}
+
+.social-red {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.social-red .icon {
+  font-size: 25px;
+  color: wheat;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-red .icon:hover {
+  transform: scale(1.3);
+  color: #ffffff; /* Morado vibrante */
+}
+
+
+/* =================== PROYECTOS =================== */
+/* Espacio entre título y tarjetas */
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 2 por columna aprox */
+  margin-top: 2rem; /* agrega espacio entre el título y las tarjetas */
+}
+
+/* =================== Título de proyectos =================== */
+.projects-title {
+  width: 100%; 
+  text-align: center; 
+  margin-bottom: 3rem; 
+}
+
+.projects-title h2 {
+  font-size: 2.5rem;
+  color: var(--morado);
+  font-weight: 700;
+  display: block;
+  position: relative;
+}
+
+.projects-title h2::after {
+  content: "";
+  display: block;
+  width: 60%; 
+  height: 5px; 
+  background: #6c63ff; 
+
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+}
+
+/* Tarjetas de proyecto */
+.project-card {
+
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.5);
+}
+
+/* Contenido dentro de la tarjeta */
+.project-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  color: var(--morado);
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--gris);
+  line-height: 1.5;
+  max-height: 3.5em; 
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.project-card:hover p {
+  max-height: 100vh; 
+}
+
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 0 12px 12px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Botón */
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--blanco);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: 2rem; 
+}
+
+.button:hover {
+  color: #4b3fc3;
+}
+
+
+@media(min-width: 768px) {
+  .project-card {
+    flex-direction: row;
+    align-items: center;
+  }
+  .project-card img {
+    width: 40%;
+    border-radius: 12px 0 0 12px;
+    margin-right: 1rem;
+  }
+  .project-content {
+    width: 60%;
+  }
+}
+
+
+
+
+/* =================== RESPONSIVIDAD =================== */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .nav a {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+  }
+  .about h1,
+  .contact h1 {
+    font-size: 2rem;
+  }
+  .about p,
+  .contact p {
+    font-size: 1rem;
+  }
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat;
+  z-index: -1;
+}
+
