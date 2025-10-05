@@ -1,7 +1,7 @@
 
 # Portafolio Web de Gabriel Pedreros
 
-![Logo](img/logo.png)
+![Logo](img/gabriel.png)
 
 ## Descripción
 
