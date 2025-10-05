@@ -13,7 +13,7 @@ El portafolio está creado con **HTML, CSS, JavaScript**, y utiliza **Font Aweso
 
 ## Demo
 
-Puedes ver el portafolio en vivo en: [https://gabr1elpedreros.github.io/Mi-Portafolio/](#) *(reemplaza con tu dominio si lo tienes)*
+Puedes ver el portafolio en vivo en: [https://gabr1elpedreros.github.io/Mi-Portafolio/](#)
 
 ---
 
