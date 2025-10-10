@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family:'Times New Roman', Times, serif;
   background: var(--negro);
   color: var(--blanco);
   line-height: 1.6;
@@ -91,6 +91,23 @@ body {
   margin: 0 auto;
   opacity: 0.85;
 }
+.nav .cv-button {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-left: 15px;
+  background-color: #ffffff; /* color del botón */
+  color: #0a3d62; /* color del texto */
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav .cv-button:hover {
+  background-color: #0a3d62;
+  color: #ffffff;
+}
+
 
 /* =================== NAVEGACIÓN =================== */
 .nav a {

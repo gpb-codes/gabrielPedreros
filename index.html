@@ -3,136 +3,287 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bazar El Oregon | Fotografías</title>
+    <title>Gabriel Pedreros | Portafolio</title>
 
-    <!-- FontAwesome -->
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.png" type="image/png" />
+
+    <!-- Fuentes -->
     <link
+      href="https://fonts.googleapis.com/css2?family=Rancho&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
-
   <body>
-    <!-- ==================== HEADER / NAV ==================== -->
+    <!-- HEADER -->
     <header class="header">
-      <div class="logo-container">
-        <img src="assets/img/logo.png" alt="Logo" class="logo" />
-        <h1 class="brand">Bazar El Oregon</h1>
+      <div class="container header-inner">
+        <div class="logo-container">
+          <h1 class="brand">ガブP</h1>
+        </div>
+        <nav class="nav">
+          <a href="#about">Sobre mí</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#habilidades">Tecnologías</a>
+          <!-- Botón descargar CV -->
+          <a
+            href="assets/cv/CV Gabriel Pedreros.pdf"
+            class="button cv-button"
+            download
+          >
+            Descargar CV
+          </a>
+        </nav>
       </div>
-
-      <nav class="nav">
-        <a href="#home" class="nav-link"><i class="fa-solid fa-house"></i></a>
-        <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i></a>
-        <a href="#gallery" class="nav-link"
-          ><i class="fa-solid fa-image"></i
-        ></a>
-        <a href="#steps" class="nav-link"
-          ><i class="fa-solid fa-list-ol"></i
-        ></a>
-      </nav>
     </header>
 
-    <!-- ==================== HOME ==================== -->
-    <section id="home" class="home">
-      <div class="home-content">
-        <h1>CUADROS DE GRADUACIÓN</h1>
-        <h2>Bazar El Oregon | Fotografías</h2>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div id="particles-js"></div>
+      <div class="hero-inner">
+        <h1>&lt;Gabriel Pedreros/&gt;</h1>
+        <p>Estudiante de programación y futuro desarrollador web.</p>
+        <div class="social-red">
+          <a
+            href="https://www.instagram.com/gabrielpedreros.dev"
+            class="icon ig"
+            target="_blank"
+            title="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/gabriel-ignacio-pedreros-089365357/"
+            class="icon linkedin"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://discord.gg/YmsVBmejB"
+            class="icon discord"
+            target="_blank"
+            title="Discord"
+          >
+            <i class="fab fa-discord"></i>
+          </a>
+          <a
+            href="https://github.com/Gabr1elpedreros"
+            class="icon github"
+            target="_blank"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- ==================== ABOUT ==================== -->
-    <section id="about" class="section-about">
-      <div class="about-container">
-        <div class="about-image">
-          <img src="assets/img/about.jpg" alt="Sobre nosotros" />
-        </div>
-        <div class="about-text">
-          <h3>Tu recuerdo en manos de expertos</h3>
-          <p>
-            En <strong>Bazar El Oregon</strong> capturamos los momentos más
-            importantes de la vida escolar. Entregamos cuadros personalizados de
-            alta calidad para que cada recuerdo sea eterno.
-          </p>
-          <ul>
-            <li>Cuadros con marco de madera nacional</li>
-            <li>Vidrio grueso de alta resistencia</li>
-            <li>Fotos impresas profesionalmente</li>
-            <li>Entrega puntual antes de la graduación</li>
-          </ul>
-        </div>
+    <!-- PROYECTOS -->
+    <!-- PROYECTOS -->
+    <section class="projects" id="projects">
+      <div class="projects-title">
+        <h2>Proyectos</h2>
       </div>
-    </section>
-
-    <!-- ==================== GALERÍA ==================== -->
-    <section id="gallery" class="gallery">
-      <h2 class="section-title">Galería de Cuadros</h2>
-
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <h3>4tos Medios</h3>
-          <div class="carousel">
-            <img src="assets/img/cuadros/1.png" alt="Cuadro 1" />
-            <img src="assets/img/cuadros/2.png" alt="Cuadro 2" />
-            <img src="assets/img/cuadros/3.png" alt="Cuadro 3" />
-            <img src="assets/img/cuadros/4.png" alt="Cuadro 4" />
+      <div class="projects-inner">
+        <!-- Proyecto 1 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 1</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
           </div>
+          <img src="img/proyecto1.png" alt="Proyecto 1" />
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 2</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto2.png" alt="Proyecto 2" />
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 3</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto3.png" alt="Proyecto 3" />
+        </div>
+
+        <!-- Proyecto 4 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 4</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto4.png" alt="Proyecto 4" />
+        </div>
+
+        <!-- Proyecto 5 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 5</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto5.png" alt="Proyecto 5" />
+        </div>
+
+        <!-- Proyecto 6 -->
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Proyecto 6</h3>
+            <p class="project-desc">Descripción del proyecto...</p>
+            <a href="#" class="button">Ver más &gt;</a>
+          </div>
+          <img src="img/proyecto6.png" alt="Proyecto 6" />
         </div>
       </div>
     </section>
 
-    <!-- ==================== PASOS ==================== -->
-    <section id="steps" class="section-steps">
-      <h2 class="section-title">Cómo obtener tu Cuadro</h2>
-      <div class="steps-container">
-        <div class="step-card">
-          <i class="fas fa-file-alt step-icon"></i>
-          <h3>Inicio Personalizado</h3>
-          <p>Completa nuestro formulario con los datos del estudiante.</p>
+    <!-- SOBRE MÍ -->
+    <section class="about" id="about">
+      <div class="about-title">
+        <h2>Sobre mí</h2>
+      </div>
+      <div class="about-inner">
+        <div class="about-content">
+          <p>
+            Hola, soy Gabriel Pedreros, un apasionado estudiante de programación
+            con un fuerte interés en el desarrollo web. Me encanta crear
+            soluciones innovadoras y aprender nuevas tecnologías para mejorar
+            mis habilidades. Mi objetivo es convertirme en un desarrollador web
+            profesional y contribuir a proyectos que hagan una diferencia.
+          </p>
         </div>
-        <div class="step-card">
-          <i class="fas fa-pencil-ruler step-icon"></i>
-          <h3>Diseño Anticipado</h3>
-          <p>Revisamos ortografía y detalles antes de imprimir.</p>
+        <img src="img/gabriel.png" alt="Foto de Gabriel Pedreros" />
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="habilidades" id="habilidades">
+      <div class="habilidades-title">
+        <h2>Habilidades</h2>
+      </div>
+      <div class="habilidades-inner">
+        <ul class="habilidades-list">
+          <li><i class="fab fa-html5"></i></li>
+          <li><i class="fab fa-css3-alt"></i></li>
+          <li><i class="fab fa-js"></i></li>
+          <li><i class="fab fa-git-alt"></i></li>
+          <li><i class="fas fa-database"></i></li>
+          <li><i class="fab fa-python"></i></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HOBBIES / INTERESES -->
+    <section class="hobbies" id="hobbies">
+      <div class="hobbies-title">
+        <h2>Hobbies & Intereses</h2>
+      </div>
+      <div class="hobbies-inner">
+        <div class="hobby-card">
+          <i class="fas fa-gamepad"></i>
+          <h3>Videojuegos</h3>
+          <p>
+            Disfruto de los juegos estratégicos y de aventura en mi tiempo
+            libre.
+          </p>
         </div>
-        <div class="step-card">
-          <i class="fas fa-user-check step-icon"></i>
-          <h3>Asistencia Adulta</h3>
-          <p>Un adulto acompaña la sesión para mayor control.</p>
+        <div class="hobby-card">
+          <i class="fas fa-music"></i>
+          <h3>Música</h3>
+          <p>
+            Escucho y creo listas de reproducción, además me interesa la
+            producción musical.
+          </p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-book"></i>
+          <h3>Lectura</h3>
+          <p>
+            Me gusta leer libros de tecnología, ciencia y desarrollo personal.
+          </p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-camera"></i>
+          <h3>Fotografía</h3>
+          <p>Capturo momentos y aprendo técnicas de composición y edición.</p>
         </div>
       </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-      <p>&copy; 2025 Bazar El Oregon. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- ==================== BOTONES FLOTANTES ==================== -->
-    <a
-      href="https://wa.me/56912345678"
-      class="btn-flotante"
-      target="_blank"
-      aria-label="WhatsApp"
-    >
-      <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <a
-      href="https://www.instagram.com/bazareloregon/"
-      class="btn-flotante-instagram"
-      target="_blank"
-      aria-label="Instagram"
-    >
-      <i class="fab fa-instagram"></i>
-    </a>
-
-    <!-- JS -->
-    <script src="assets/js/nav.js"></script>
-    <script src="assets/js/"></script>
-    <script src="assets/js/nav.js"></script>
-
+    <!-- PARTICLES JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: {
+            type: ["circle", "triangle", "polygon"],
+            stroke: { width: 0 },
+          },
+          opacity: {
+            value: 0.6,
+            random: true,
+            anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false }, // suaviza aparición/desaparición
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: { enable: true, speed: 2, size_min: 1, sync: false }, // simula acercarse y alejarse
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.3,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 1.5,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "repulse" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.6 } },
+            repulse: { distance: 150, duration: 0.4 },
+            push: { particles_nb: 4 },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
   </body>
 </html>
