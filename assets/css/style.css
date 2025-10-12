@@ -440,3 +440,173 @@ footer a:hover {
   background: center/cover no-repeat;
   z-index: -1;
 }
+
+/* =================== HOBBIES / INTERESES =================== */
+.hobbies {
+  padding: 5rem 1rem;
+  background: var(--negro);
+  text-align: center;
+}
+
+.hobbies-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.hobbies-title h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--morado);
+  margin: 0.8rem auto 0 auto;
+  border-radius: 2px;
+}
+
+.hobbies-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hobby-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  box-shadow: 0 6px 15px rgba(0, 204, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 204, 255, 0.3);
+}
+
+.hobby-card i {
+  font-size: 2.5rem;
+  color: var(--morado);
+  margin-bottom: 1rem;
+}
+
+.hobby-card h3 {
+  font-size: 1.3rem;
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+}
+
+.hobby-card p {
+  color: var(--gris);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =================== HEADER (solo PC) =================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--negro);
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0;
+}
+
+body {
+  scroll-behavior: smooth;
+  padding-top: 80px; /* espacio para header en PC */
+}
+
+/* Ocultar header en móviles */
+@media (max-width: 768px) {
+  .header {
+    display: none;
+  }
+  body {
+    padding-top: 0;
+  }
+}
+
+/* =================== BOTÓN FLOTANTE CV =================== */
+.cv-btn {
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  background: var(--morado);
+  color: var(--blanco);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 204, 255, 0.5);
+}
+
+/* =================== NAV INFERIOR (ESTILO INSTAGRAM) =================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--negro);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6rem 0;
+  z-index: 1000;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ítems */
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--gris);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item.active {
+  color: var(--morado);
+}
+
+/* Mostrar solo en móviles */
+@media (min-width: 769px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+/* Ajustes móviles */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px; /* espacio para la barra inferior */
+  }
+
+  .cv-btn {
+    bottom: 90px;
+    right: 15px;
+  }
+}
