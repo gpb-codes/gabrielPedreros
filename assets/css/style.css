@@ -609,7 +609,10 @@ body {
     bottom: 90px;
     right: 15px;
   }
+
+  .butto
 }
+/* =================== BOTÓN VER MÁS =================== */
 /* =================== BOTÓN VER MÁS =================== */
 .button {
   display: inline-block;
@@ -624,8 +627,35 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* Hover */
 .button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 204, 255, 0.5);
-  background: #00e0ff; /* ligero cambio de color para el hover */
+  background: #00e0ff; /* ligero cambio de color al pasar el mouse */
 }
+
+/* =================== RESPONSIVIDAD =================== */
+@media (max-width: 1024px) {
+  .button {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    width: 100%; /* opcional: que tome todo el ancho en móviles */
+    text-align: center;
+  }
+}
+
