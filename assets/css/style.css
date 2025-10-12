@@ -1,13 +1,24 @@
-/* =================== VARIABLES =================== */
+/* =========================================================
+   VARIABLES
+========================================================= */
 :root {
   --blanco: #ffffff;
   --negro: #111111;
   --morado: #00ccff;
-  --gris: #666666;
-  --sombra: rgba(0, 0, 0, 0.4);
+  --gris: #999999;
+  --sombra: rgba(0, 0, 0, 0.5);
+  --primario: #00ccff;
+  --secundario: #0a3d62;
 }
 
-/* =================== ESTILOS BASE =================== */
+/* =========================================================
+   FUENTES
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   ESTILOS BASE
+========================================================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,10 +30,12 @@ html {
 }
 
 body {
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--negro);
   color: var(--blanco);
-  line-height: 1.6;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -31,97 +44,64 @@ body {
   padding: 0 1rem;
 }
 
-/* =================== HEADER =================== */
+h1, h2, h3, h4 {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER (PC)
+========================================================= */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent;
+  background: rgba(17,17,17,0.9);
+  z-index: 999;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   padding: 1rem 0;
-  z-index: 1000;
-  transition: background 0.3s ease, padding 0.3s ease;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
 }
 
 .header-inner {
+  width: 95%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header.scrolled {
-  background: var(--negro);
-  padding: 0.5rem 0;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .brand {
   color: var(--blanco);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
-.section-title {
-  text-align: center;
-  margin: 80px 0 40px;
-  padding: 0 20px;
-}
-
-.section-title h2 {
-  font-size: 2.8rem;
-  color: var(--blanco);
-  font-weight: 800;
-  letter-spacing: 22px;
-  text-transform: uppercase;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title p {
-  font-size: 1.2rem;
-  color: var(--blanco);
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0.85;
-}
-.nav .cv-button {
-  display: inline-block;
-  padding: 8px 15px;
-  margin-left: 15px;
-  background-color: #ffffff; /* color del botón */
-  color: #0a3d62; /* color del texto */
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.nav .cv-button:hover {
-  background-color: #0a3d62;
-  color: #ffffff;
-}
-
-
-/* =================== NAVEGACIÓN =================== */
+/* Navbar superior */
 .nav a {
   color: var(--blanco);
   text-decoration: none;
   margin-left: 1.5rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   position: relative;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav a:hover {
-  color: var(--morado);
+  color: var(--primario);
   transform: translateY(-2px);
 }
 
@@ -132,7 +112,7 @@ body {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: var(--morado);
+  background-color: var(--primario);
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -142,7 +122,27 @@ body {
   width: 100%;
 }
 
-/* =================== HERO =================== */
+/* Botón CV */
+.nav .cv-button {
+  padding: 8px 16px;
+  margin-left: 15px;
+  background-color: var(--blanco);
+  color: var(--secundario);
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav .cv-button:hover {
+  background-color: var(--secundario);
+  color: var(--blanco);
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   HERO (SE MANTIENE IGUAL)
+========================================================= */
 .hero {
   position: relative;
   height: 100vh;
@@ -150,30 +150,28 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: center/cover no-repeat;
   color: var(--blanco);
+  background: center/cover no-repeat;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(17, 17, 17, 0.6);
-  z-index: 1;
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(17,17,17,0.6);
+  z-index:1;
 }
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+  z-index:2;
   max-width: 800px;
   padding: 0 1rem;
 }
 
 .hero-inner h1 {
   font-size: 7vh;
+  font-weight: 700;
   color: transparent;
   -webkit-text-stroke: 2px var(--blanco);
   -webkit-text-fill-color: transparent; 
@@ -182,6 +180,7 @@ body {
 .hero-inner p {
   font-size: 1.3rem;
   color: var(--blanco);
+  font-weight: 500;
 }
 
 .hero a {
@@ -192,247 +191,18 @@ body {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
-
+  font-size: 2rem;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .hero a:hover {
-  color: var(--blanco);
   transform: translateY(-3px);
+  color: var(--primario);
 }
 
-/* =================== REDES SOCIALES =================== */
-.social-red {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.social-red .icon {
-  font-size: 25px;
-  color: var(--blanco);
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-red .icon:hover {
-  transform: scale(1.3);
-  color: var(--morado);
-}
-
-/* =================== PROYECTOS =================== */
-.projects {
-  padding: 5rem 1rem;
-}
-
-.projects-title {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.projects-title h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--blanco);
-  position: relative;
-}
-
-.projects-title h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--morado);
-  margin: 0.8rem auto 0 auto;
-  border-radius: 2px;
-}
-
-.projects-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-}
-
-.project-card {
-  background: #1a1a1a;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--sombra);
-  display: flex;
-  flex-direction: column-reverse;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 204, 255, 0.5);
-}
-
-.project-content {
-  padding: 1rem;
-  text-align: left;
-}
-
-.project-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  font-size: 0.95rem;
-  max-height: 3.5em;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.project-card:hover p {
-  max-height: 100vh;
-}
-
-.project-card img {
-  width: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover img {
-  transform: scale(1.05);
-}
-
-/* =================== SOBRE MÍ =================== */
-.about {
-  max-width: 1200px;
-  margin: 6rem auto;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.about h2 {
-  font-size: 3rem;
-}
-
-.about img {
-  width: 290px;
-  border-radius: 50%;
-  border: 3px solid var(--morado);
-  box-shadow: 0 0 25px rgba(0, 204, 255, 0.5);
-  transition: transform 0.3s ease;
-}
-
-.about img:hover {
-  transform: scale(1.07);
-}
-
-.about-content {
-  max-width: 850px;
-  margin: 2rem auto;
-  font-size: 1.15rem;
-  line-height: 1.9;
-}
-
-/* =================== HABILIDADES =================== */
-.habilidades {
-  background: #1a1a1a;
-  padding: 5rem 1rem;
-}
-
-.habilidades-title {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.habilidades-title h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  position: relative;
-}
-
-.habilidades-title h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--morado);
-  margin: 0.8rem auto 0 auto;
-  border-radius: 2px;
-}
-
-.habilidades-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.habilidades-list li {
-  background: #222;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.habilidades-list li i {
-  font-size: 1.5rem;
-  color: var(--morado);
-}
-
-.habilidades-list li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 204, 255, 0.4);
-}
-
-/* =================== FOOTER =================== */
-footer {
-  background: #0b0b0b;
-  padding: 2rem 1rem;
-  text-align: center;
-  color: var(--gris);
-  border-top: 1px solid #222;
-}
-
-footer p {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: var(--morado);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: var(--blanco);
-}
-
-/* =================== RESPONSIVIDAD =================== */
-@media (max-width: 768px) {
-  .hero-inner h1 {
-    font-size: 2.5rem;
-  }
-  .hero-inner p {
-    font-size: 1rem;
-  }
-  .nav a {
-    margin-left: 1rem;
-    font-size: 0.85rem;
-  }
-  .about-content {
-    font-size: 1rem;
-  }
-  .project-card {
-    flex-direction: column;
-  }
-}
-
+/* =========================================================
+   PARTICLES JS (SE MANTIENE)
+========================================================= */
 #particles-js {
   position: fixed;
   width: 100%;
@@ -441,221 +211,485 @@ footer a:hover {
   z-index: -1;
 }
 
-/* =================== HOBBIES / INTERESES =================== */
-.hobbies {
-  padding: 5rem 1rem;
-  background: var(--negro);
-  text-align: center;
+/* =========================================================
+   SECCIONES
+========================================================= */
+section {
+  padding: 4rem 1rem;
 }
 
-.hobbies-title h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
+section h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
-.hobbies-title h2::after {
-  content: "";
+section h2::after {
+  content: '';
   display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--morado);
-  margin: 0.8rem auto 0 auto;
+  width: 80px;
+  height: 3px;
+  background: var(--primario);
+  margin: 1rem auto 0 auto;
   border-radius: 2px;
 }
 
-.hobbies-inner {
+/* =========================================================
+   PROYECTOS / HABILIDADES / HOBBIES
+========================================================= */
+/* =========================================================
+   PROYECTOS
+========================================================= */
+.projects-inner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
 }
 
-.hobby-card {
-  background: #1a1a1a;
+.project-card {
+  background: #1c1c1c;
   border-radius: 15px;
-  padding: 2rem 1rem;
-  box-shadow: 0 6px 15px rgba(0, 204, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0,204,255,0.25);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,204,255,0.35);
+}
+
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 1.2rem;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: var(--gris);
+  max-height: 4em;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.project-card:hover p {
+  max-height: 100vh;
+}
+
+/* =========================================================
+   HABILIDADES HORIZONTAL - ICONOS BLANCOS
+========================================================= */
+.habilidades-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  justify-content: center;
+  scroll-behavior: smooth;
+}
+
+.habilidades-list li {
+  flex: 0 0 auto;
+  background: #1c1c1c;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,204,255,0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hobby-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 204, 255, 0.3);
+.habilidades-list li:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,204,255,0.35);
+}
+
+/* ICONOS CIRCULARES CON FONDO BLANCO */
+.habilidades-list li i {
+  font-size: 1.5rem;
+  color: var(--morado); /* color del icono */
+  background: var(--secundario); /* fondo blanco */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.habilidades-list li:hover i {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0, 204, 255, 0.5);
+  background: var(--negro); /* cambio de fondo al hacer hover */
+  color: var(--blanco);       /* icono cambia a blanco en hover */
+}
+
+/* Quitar scrollbars */
+.habilidades-list::-webkit-scrollbar {
+  display: none;
+}
+.habilidades-list {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
+/* =========================================================
+   HOBBIES / INTERESES - DISEÑO LIMPIO SIN ANIMACIONES
+========================================================= */
+.hobbies-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  padding: 3rem 1rem;
+}
+
+.hobby-card {
+  background: #1c1c1c;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,204,255,0.25);
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 250px;
 }
 
 .hobby-card i {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--morado);
+  background: var(--negro);
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   margin-bottom: 1rem;
 }
 
 .hobby-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--blanco);
   margin-bottom: 0.5rem;
 }
 
-.hobby-card p {
-  color: var(--gris);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* =================== HEADER (solo PC) =================== */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--negro);
-  z-index: 999;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 1rem 0;
-}
-
-body {
-  scroll-behavior: smooth;
-  padding-top: 80px; /* espacio para header en PC */
-}
-
-/* Ocultar header en móviles */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .header {
-    display: none;
+  .hobbies-inner {
+    grid-template-columns: 1fr;
   }
-  body {
-    padding-top: 0;
+
+  .hobby-card {
+    max-width: 300px;
   }
 }
 
-/* =================== BOTÓN FLOTANTE CV =================== */
-.cv-btn {
-  position: fixed;
-  bottom: 85px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  background: var(--morado);
-  color: var(--blanco);
+/* =========================================================
+   SOBRE MÍ MEJORADO
+========================================================= */
+.about {
+  max-width: 800px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.about img {
+  width: 280px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  z-index: 1001;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 4px solid var(--morado);
+  box-shadow: 0 0 35px rgba(0,204,255,0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.cv-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 204, 255, 0.5);
+.about img:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 0 50px rgba(0,204,255,0.6);
 }
 
-/* =================== NAV INFERIOR (ESTILO INSTAGRAM) =================== */
+.about h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--blanco);
+}
+
+.about-content {
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--gris);
+  text-align: center;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+  background: #0b0b0b;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--gris);
+  border-top: 1px solid #222;
+}
+
+footer a {
+  color: var(--primario);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--blanco);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1024px) {
+  .header { display: none; }
+  .bottom-nav { display: flex; }
+  body { padding-bottom: 90px; }
+  .cv-btn { bottom: 85px; right: 15px; }
+  .hero-inner h1 { font-size: 4rem; }
+  .hero-inner p { font-size: 1rem; }
+  .projects-inner, .habilidades-list, .hobbies-inner {
+    grid-template-columns: 1fr;
+  }
+  .project-card, .habilidades-list li, .hobby-card { max-width: 95%; }
+}
+
+/* =========================================================
+   BARRA INFERIOR MÓVIL
+========================================================= */
 .bottom-nav {
+  display: none; /* se activa solo en móvil */
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   background: var(--negro);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.3);
+  padding: 0.6rem 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0.6rem 0;
-  z-index: 1000;
-  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Ítems */
 .bottom-nav .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--gris);
   text-decoration: none;
+  color: var(--gris);
   font-size: 0.8rem;
   transition: color 0.3s ease;
 }
 
 .bottom-nav .nav-item i {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-bottom: 0.2rem;
+  color: var(--gris);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.bottom-nav .nav-item:hover,
-.bottom-nav .nav-item.active {
-  color: var(--morado);
+.bottom-nav .nav-item.active,
+.bottom-nav .nav-item:hover {
+  color: var(--primario);
 }
 
-/* Mostrar solo en móviles */
-@media (min-width: 769px) {
+.bottom-nav .nav-item.active i,
+.bottom-nav .nav-item:hover i {
+  transform: scale(1.2);
+  color: var(--primario);
+}
+
+/* Mostrar barra inferior solo en móviles */
+@media (max-width: 1024px) {
   .bottom-nav {
+    display: flex;
+  }
+}
+
+
+/* =========================================================
+   BOTÓN CV
+========================================================= */
+.cv-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primario);
+  color: var(--blanco);
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.cv-btn i {
+  font-size: 1.2rem;
+}
+
+.cv-btn:hover {
+  background-color: var(--blanco);
+  color: var(--primario);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,204,255,0.5);
+}
+
+/* =========================================================
+   BARRA INFERIOR MÓVIL
+========================================================= */
+.bottom-nav {
+  display: none; /* por defecto no visible */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--negro);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.3);
+  padding: 0.6rem 0;
+  z-index: 1000;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--gris);
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+  color: var(--gris);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.bottom-nav .nav-item.active,
+.bottom-nav .nav-item:hover {
+  color: var(--primario);
+}
+
+.bottom-nav .nav-item.active i,
+.bottom-nav .nav-item:hover i {
+  transform: scale(1.2);
+  color: var(--primario);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1024px) {
+  /* Ocultar header superior en móvil */
+  .header {
     display: none;
   }
-}
 
-/* Ajustes móviles */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 80px; /* espacio para la barra inferior */
+  /* Mostrar barra inferior solo en móvil */
+  .bottom-nav {
+    display: flex;
   }
 
+  /* Ajustes de padding para que no tape contenido */
+  body {
+    padding-bottom: 90px;
+  }
+
+  /* Botón CV flotante en móvil */
   .cv-btn {
-    bottom: 90px;
+    bottom: 85px;
     right: 15px;
   }
 
-  .butto
+  /* Hero responsive */
+  .hero-inner h1 { font-size: 4rem; }
+  .hero-inner p { font-size: 1rem; }
+
+  /* Contenido a 1 columna */
+  .projects-inner,
+  .habilidades-list,
+  .hobbies-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card,
+  .habilidades-list li,
+  .hobby-card {
+    max-width: 95%;
+  }
 }
-/* =================== BOTÓN VER MÁS =================== */
-/* =================== BOTÓN VER MÁS =================== */
+
+@media (min-width: 1025px) {
+  /* En PC ocultar barra inferior */
+  .bottom-nav {
+    display: none;
+  }
+
+  /* Botón CV flotante en PC */
+  .cv-btn {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+/* =========================================================
+   BOTÓN VER MÁS
+========================================================= */
 .button {
   display: inline-block;
-  padding: 0.75rem 1.8rem;
-  background: var(--morado);
+  background-color: var(--primario);
   color: var(--blanco);
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 204, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 204, 255, 0.3);
 }
 
-/* Hover */
 .button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 204, 255, 0.5);
-  background: #00e0ff; /* ligero cambio de color al pasar el mouse */
+  background-color: var(--blanco);
+  color: var(--primario);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 204, 255, 0.5);
 }
-
-/* =================== RESPONSIVIDAD =================== */
-@media (max-width: 1024px) {
-  .button {
-    padding: 0.65rem 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .button {
-    padding: 0.55rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    width: 100%; /* opcional: que tome todo el ancho en móviles */
-    text-align: center;
-  }
-}
-

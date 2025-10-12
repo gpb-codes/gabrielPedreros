@@ -10,7 +10,7 @@
 
     <!-- Fuentes -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Rancho&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -24,31 +24,38 @@
     />
   </head>
   <body>
-    <!-- HEADER -->
-    <header class="header">
+    <!-- =========================================================
+       HEADER (solo PC)
+  ========================================================= -->
+    <header class="header pc-only" aria-label="Barra superior de navegación">
       <div class="container header-inner">
         <div class="logo-container">
           <h1 class="brand">ガブP</h1>
         </div>
-        <nav class="nav">
+        <nav class="nav" aria-label="Menú principal">
           <a href="#about">Sobre mí</a>
           <a href="#projects">Proyectos</a>
-          <a href="#habilidades">Tecnologías</a>
+          <a href="#habilidades">Habilidades</a>
         </nav>
       </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
+    <!-- =========================================================
+       HERO
+  ========================================================= -->
+    <section class="hero" id="hero" aria-label="Sección Hero">
       <div id="particles-js"></div>
       <div class="hero-inner">
         <h1>&lt;Gabriel Pedreros/&gt;</h1>
         <p>Estudiante de programación y futuro desarrollador web.</p>
+
+        <!-- Redes sociales -->
         <div class="social-red">
           <a
             href="https://www.instagram.com/gabrielpedreros.dev"
             class="icon ig"
             target="_blank"
+            rel="noopener noreferrer"
             title="Instagram"
           >
             <i class="fab fa-instagram"></i>
@@ -57,6 +64,7 @@
             href="https://www.linkedin.com/in/gabriel-ignacio-pedreros-089365357/"
             class="icon linkedin"
             target="_blank"
+            rel="noopener noreferrer"
             title="LinkedIn"
           >
             <i class="fab fa-linkedin"></i>
@@ -65,6 +73,7 @@
             href="https://discord.gg/YmsVBmejB"
             class="icon discord"
             target="_blank"
+            rel="noopener noreferrer"
             title="Discord"
           >
             <i class="fab fa-discord"></i>
@@ -73,6 +82,7 @@
             href="https://github.com/Gabr1elpedreros"
             class="icon github"
             target="_blank"
+            rel="noopener noreferrer"
             title="GitHub"
           >
             <i class="fab fa-github"></i>
@@ -81,9 +91,10 @@
       </div>
     </section>
 
-    <!-- PROYECTOS -->
-    <!-- PROYECTOS -->
-    <section class="projects" id="projects">
+    <!-- =========================================================
+       PROYECTOS
+  ========================================================= -->
+    <section class="projects" id="projects" aria-label="Sección de proyectos">
       <div class="projects-title">
         <h2>Proyectos</h2>
       </div>
@@ -93,25 +104,14 @@
           <div class="project-content">
             <h3>Fotografía Bazar el Oregon</h3>
             <p class="project-desc">
-              Este proyecto consiste en el desarrollo de un sitio web moderno y
-              visualmente atractivo para Bazar el Oregon, enfocado en exhibir su
-              catálogo de productos y fotografías de manera dinámica e
-              interactiva. El sitio está diseñado para ofrecer una experiencia
-              de usuario fluida, con un carrusel de imágenes infinito, botones
-              flotantes y un diseño responsive que se adapta a distintos
-              dispositivos, manteniendo la estética y funcionalidad tanto en
-              escritorio como en móviles. Durante el desarrollo se trabajó en la
-              optimización del rendimiento, el diseño minimalista con paleta de
-              colores personalizada y la integración de elementos visuales que
-              resaltan la identidad de la marca. Este proyecto demuestra
-              habilidades en HTML, CSS, JavaScript y diseño UX/UI, así como la
-              capacidad de crear interfaces modernas y funcionales. Tecnologías
-              usadas: HTML, CSS, JavaScript, diseño responsive, optimización de
-              UX/UI.
+              Desarrollo de un sitio web moderno y visualmente atractivo para
+              Bazar el Oregon, con carrusel de imágenes infinito y diseño
+              responsive. Tecnologías: HTML, CSS, JS y UX/UI.
             </p>
             <a
               href="https://gabr1elpedreros.github.io/Bazar-el-oregon.fotos/"
               class="button"
+              target="_blank"
               >Ver más &gt;</a
             >
           </div>
@@ -122,7 +122,10 @@
         <div class="project-card">
           <div class="project-content">
             <h3>Proyecto 2</h3>
-            <p class="project-desc">Descripción del proyecto...</p>
+            <p class="project-desc">
+              E-commerce con carrito de compras, diseño responsivo y
+              optimización SEO. Tecnologías: HTML, CSS, JS.
+            </p>
             <a href="#" class="button">Ver más &gt;</a>
           </div>
           <img src="img/proyecto2.png" alt="Proyecto 2" />
@@ -132,7 +135,10 @@
         <div class="project-card">
           <div class="project-content">
             <h3>Proyecto 3</h3>
-            <p class="project-desc">Descripción del proyecto...</p>
+            <p class="project-desc">
+              App de gestión de tareas con autenticación y base de datos.
+              Tecnologías: HTML, CSS, JS, Firebase.
+            </p>
             <a href="#" class="button">Ver más &gt;</a>
           </div>
           <img src="img/proyecto3.png" alt="Proyecto 3" />
@@ -142,7 +148,10 @@
         <div class="project-card">
           <div class="project-content">
             <h3>Proyecto 4</h3>
-            <p class="project-desc">Descripción del proyecto...</p>
+            <p class="project-desc">
+              Sitio web corporativo con diseño minimalista, responsive y
+              optimizado para SEO. Tecnologías: HTML, CSS, JS.
+            </p>
             <a href="#" class="button">Ver más &gt;</a>
           </div>
           <img src="img/proyecto4.png" alt="Proyecto 4" />
@@ -152,7 +161,10 @@
         <div class="project-card">
           <div class="project-content">
             <h3>Proyecto 5</h3>
-            <p class="project-desc">Descripción del proyecto...</p>
+            <p class="project-desc">
+              Aplicación de trivia interactiva para aprender programación.
+              Tecnologías: HTML, CSS, JS.
+            </p>
             <a href="#" class="button">Ver más &gt;</a>
           </div>
           <img src="img/proyecto5.png" alt="Proyecto 5" />
@@ -162,7 +174,11 @@
         <div class="project-card">
           <div class="project-content">
             <h3>Proyecto 6</h3>
-            <p class="project-desc">Descripción del proyecto...</p>
+            <p class="project-desc">
+              Portafolio personal responsive con animaciones y efectos visuales
+              modernos. Incluye integración con redes sociales y CV descargable.
+              Tecnologías: HTML, CSS, JS.
+            </p>
             <a href="#" class="button">Ver más &gt;</a>
           </div>
           <img src="img/proyecto6.png" alt="Proyecto 6" />
@@ -170,84 +186,112 @@
       </div>
     </section>
 
-    <!-- SOBRE MÍ -->
-    <section class="about" id="about">
-      <div class="about-title">
-        <h2>Sobre mí</h2>
-      </div>
+    <!-- =========================================================
+       SOBRE MÍ
+  ========================================================= -->
+    <section class="about" id="about" aria-label="Sección Sobre mí">
+      <div class="about-title"><h2>Sobre mí</h2></div>
       <div class="about-inner">
         <div class="about-content">
           <p>
-            Hola, soy Gabriel Pedreros, un apasionado estudiante de programación
-            con un fuerte interés en el desarrollo web. Me encanta crear
-            soluciones innovadoras y aprender nuevas tecnologías para mejorar
-            mis habilidades. Mi objetivo es convertirme en un desarrollador web
-            profesional y contribuir a proyectos que hagan una diferencia.
+            Hola, soy Gabriel Pedreros, apasionado estudiante de programación
+            con interés en desarrollo web. Mi objetivo es convertirme en
+            desarrollador web profesional y crear proyectos innovadores.
           </p>
         </div>
         <img src="img/gabriel.png" alt="Foto de Gabriel Pedreros" />
       </div>
     </section>
 
-    <!-- HABILIDADES -->
-    <section class="habilidades" id="habilidades">
-      <div class="habilidades-title">
-        <h2>Habilidades</h2>
-      </div>
-      <div class="habilidades-inner">
-        <ul class="habilidades-list">
-          <li><i class="fab fa-html5"></i></li>
-          <li><i class="fab fa-css3-alt"></i></li>
-          <li><i class="fab fa-js"></i></li>
-          <li><i class="fab fa-git-alt"></i></li>
-          <li><i class="fas fa-database"></i></li>
-          <li><i class="fab fa-python"></i></li>
-        </ul>
-      </div>
+    <!-- =========================================================
+       HABILIDADES
+  ========================================================= -->
+    <section
+      class="habilidades"
+      id="habilidades"
+      aria-label="Sección Habilidades"
+    >
+      <div class="habilidades-title"><h2>Habilidades</h2></div>
+      <ul class="habilidades-list">
+        <li><i class="fab fa-html5"></i></li>
+        <li><i class="fab fa-css3-alt"></i></li>
+        <li><i class="fab fa-js"></i></li>
+        <li><i class="fab fa-git-alt"></i></li>
+        <li><i class="fas fa-database"></i></li>
+        <li><i class="fab fa-python"></i></li>
+      </ul>
     </section>
 
-    <!-- HOBBIES / INTERESES -->
-    <section class="hobbies" id="hobbies">
-      <div class="hobbies-title">
-        <h2>Hobbies & Intereses</h2>
-      </div>
+    <!-- =========================================================
+       HOBBIES / INTERESES
+  ========================================================= -->
+    <section
+      class="hobbies"
+      id="hobbies"
+      aria-label="Sección Hobbies e Intereses"
+    >
+      <div class="hobbies-title"><h2>Hobbies & Intereses</h2></div>
       <div class="hobbies-inner">
         <div class="hobby-card">
           <i class="fas fa-code"></i>
           <h3>Programar</h3>
-          <p>
-            Me apasiona crear proyectos web y aprender nuevas tecnologías que me
-            ayuden a mejorar mis habilidades como desarrollador.
-          </p>
+          <p>Me apasiona crear proyectos web y aprender nuevas tecnologías.</p>
         </div>
         <div class="hobby-card">
           <i class="fas fa-music"></i>
           <h3>Música</h3>
-          <p>
-            Escucho diversos géneros y disfruto crear mis propias canciones en
-            mi tiempo libre.
-          </p>
+          <p>Escucho diversos géneros y disfruto crear canciones.</p>
         </div>
         <div class="hobby-card">
           <i class="fas fa-gamepad"></i>
           <h3>Videojuegos</h3>
-          <p>
-            Me gustan los juegos de estrategia y aventura, ya que fomentan la
-            creatividad y la resolución de problemas.
-          </p>
+          <p>Me gustan los juegos de estrategia y aventura.</p>
         </div>
         <div class="hobby-card">
           <i class="fas fa-microphone-alt"></i>
           <h3>Cantar</h3>
-          <p>
-            Me gusta expresar emociones y energía a través del canto,
-            combinándolo con mi gusto por la música.
-          </p>
+          <p>Me gusta expresar emociones y energía a través del canto.</p>
         </div>
       </div>
     </section>
 
-    <!-- PARTICLES JS -->
+    <!-- =========================================================
+       BOTÓN FLOTANTE CV
+  ========================================================= -->
+    <a
+      href="assets/cv/CV Gabriel Pedreros.pdf"
+      class="cv-btn"
+      target="_blank"
+      title="Descargar CV"
+      download
+    >
+      <i class="fas fa-file-download"></i>
+    </a>
+
+    <!-- =========================================================
+       NAV INFERIOR (solo móvil)
+  ========================================================= -->
+    <nav class="bottom-nav mobile-only">
+      <a href="#hero" class="nav-item"
+        ><i class="fas fa-home"></i><span>Inicio</span></a
+      >
+      <a href="#about" class="nav-item"
+        ><i class="fas fa-user"></i><span>Sobre mí</span></a
+      >
+      <a href="#projects" class="nav-item"
+        ><i class="fas fa-briefcase"></i><span>Proyectos</span></a
+      >
+      <a href="#habilidades" class="nav-item"
+        ><i class="fas fa-cogs"></i><span>Habilidades</span></a
+      >
+      <a href="#hobbies" class="nav-item"
+        ><i class="fas fa-heart"></i><span>Hobbies</span></a
+      >
+    </nav>
+
+    <!-- =========================================================
+       PARTICLES JS
+  ========================================================= -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
       particlesJS("particles-js", {
@@ -261,12 +305,12 @@
           opacity: {
             value: 0.6,
             random: true,
-            anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false }, // suaviza aparición/desaparición
+            anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false },
           },
           size: {
             value: 3,
             random: true,
-            anim: { enable: true, speed: 2, size_min: 1, sync: false }, // simula acercarse y alejarse
+            anim: { enable: true, speed: 2, size_min: 1, sync: false },
           },
           line_linked: {
             enable: true,
@@ -301,39 +345,5 @@
         retina_detect: true,
       });
     </script>
-    <!-- BOTÓN FLOTANTE CV -->
-    <a
-      href="assets/cv/CV Gabriel Pedreros.pdf"
-      class="cv-btn"
-      target="_blank"
-      title="Descargar CV"
-      download
-    >
-      <i class="fas fa-file-download"></i>
-    </a>
-
-    <!-- NAV INFERIOR (solo móvil) -->
-    <nav class="bottom-nav">
-      <a href="#hero" class="nav-item">
-        <i class="fas fa-home"></i>
-        <span>Inicio</span>
-      </a>
-      <a href="#about" class="nav-item">
-        <i class="fas fa-user"></i>
-        <span>Sobre mí</span>
-      </a>
-      <a href="#projects" class="nav-item">
-        <i class="fas fa-briefcase"></i>
-        <span>Proyectos</span>
-      </a>
-      <a href="#habilidades" class="nav-item">
-        <i class="fas fa-cogs"></i>
-        <span>Habilidades</span>
-      </a>
-      <a href="#hobbies" class="nav-item">
-        <i class="fas fa-heart"></i>
-        <span>Hobbies</span>
-      </a>
-    </nav>
   </body>
 </html>
