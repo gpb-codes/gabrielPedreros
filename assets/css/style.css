@@ -610,3 +610,22 @@ body {
     right: 15px;
   }
 }
+/* =================== BOTÓN VER MÁS =================== */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  background: var(--morado);
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 204, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 204, 255, 0.5);
+  background: #00e0ff; /* ligero cambio de color para el hover */
+}
