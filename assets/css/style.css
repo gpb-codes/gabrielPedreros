@@ -309,7 +309,7 @@ section h2::after {
 
 .habilidades-list li {
   flex: 0 0 auto;
-  background: #1c1c1c;
+  background: #00000042;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0,204,255,0.25);
   display: flex;
@@ -327,8 +327,8 @@ section h2::after {
 /* ICONOS CIRCULARES CON FONDO BLANCO */
 .habilidades-list li i {
   font-size: 1.5rem;
-  color: var(--morado); /* color del icono */
-  background: var(--secundario); /* fondo blanco */
+  color: var(--morado);
+  background: var(--secundario); 
   width: 45px;
   height: 45px;
   display: flex;
@@ -338,12 +338,7 @@ section h2::after {
   transition: all 0.3s ease;
 }
 
-.habilidades-list li:hover i {
-  transform: scale(1.2);
-  box-shadow: 0 4px 15px rgba(0, 204, 255, 0.5);
-  background: var(--negro); /* cambio de fondo al hacer hover */
-  color: var(--blanco);       /* icono cambia a blanco en hover */
-}
+  
 
 /* Quitar scrollbars */
 .habilidades-list::-webkit-scrollbar {
@@ -368,7 +363,7 @@ section h2::after {
 .hobby-card {
   background: #1c1c1c;
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,204,255,0.25);
+  box-shadow: 0 0.2px 14px rgba(0,204,255,0.25);
   text-align: center;
   padding: 1.5rem;
   width: 100%;
