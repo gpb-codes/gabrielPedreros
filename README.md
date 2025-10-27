@@ -1,45 +1,47 @@
-
-# Portafolio Web de Gabriel Pedreros
-
-![Logo](img/gabriel.png)
-
-## Descripción
-
-Este es el portafolio personal de **Gabriel Pedreros**, estudiante de programación y futuro desarrollador web. La página está diseñada para mostrar información sobre mí, mis proyectos, habilidades y enlaces a mis redes sociales y GitHub. Además, incluye efectos visuales como partículas animadas en el fondo del *hero* y un diseño moderno y responsivo.
-
-El portafolio está creado con **HTML, CSS, JavaScript**, y utiliza **Font Awesome** para íconos y **Particles.js** para la animación del fondo.
+# Gabriel Pedreros  
+*Estudiante de programación | Tecnología + Cultura*
 
 ---
 
-## Demo
-
-Puedes ver el portafolio en vivo en: [https://gabr1elpedreros.github.io/Mi-Portafolio/](#)
-
----
-
-## Estructura del proyecto
-
-
-
-## Tecnologías utilizadas
-
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **Font Awesome** (íconos)
-- **Particles.js** (animación de partículas)
-- **Google Fonts** (Rancho)
+## Sobre mí  
+Apasionado por la intersección entre lógica y estética. Creo soluciones digitales que funcionan bien y comunican con claridad. Me interesa el diseño educativo, la narrativa visual y el desarrollo web con propósito. Siempre aprendiendo, iterando y construyendo con visión de futuro.
 
 ---
 
-## Características
+## Tecnologías  
+*Lenguajes:* Python · JavaScript · HTML · CSS  
+*Frameworks:* Flask · TailwindCSS  
+*Bases de datos:* MySQL  
+*Herramientas:* Git · GitHub · Linux · VS Code
 
-- Sección **Hero** con animación de partículas y presentación del nombre.
-- Sección **Sobre mí** con foto y descripción personal.
-- Sección **Proyectos** con tarjetas de proyectos y enlaces a detalles.
-- Sección **Habilidades** con íconos representativos de tecnologías.
-- Diseño **responsivo** para dispositivos móviles y desktop.
-- **Redes sociales**: Instagram, LinkedIn, Discord y GitHub.
+---
 
+## Proyectos  
+- *Mitología Nórdica Web*  
+  Sitio informativo desarrollado con Flask, HTML, CSS y Jinja2.
 
+- *Diccionario del Programador Web*  
+  Glosario interactivo construido con Flask, JavaScript y TailwindCSS.
 
+---
+
+## GitHub  
+![Stats](https://github-readme-stats.vercel.app/api?username=gabr1elpedreros&show_icons=true&theme=tokyonight)  
+![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=gabr1elpedreros&layout=compact&theme=tokyonight)
+
+---
+
+## Actualmente  
+Explorando nuevas tecnologías para proyectos web y backend.  
+Desarrollando la idea de una Bolsa de Empleo Escolar.
+
+---
+
+## Contacto  
+*GitHub:* [@gabr1elpedreros](https://github.com/gabr1elpedreros)  
+*Correo:* g.pedreros.becerra@gmail.com  
+*LinkedIn:* [Gabriel Ignacio Pedreros](https://www.linkedin.com/in/gabriel-ignacio-pedreros-089365357)
+
+---
+
+> "La programación no solo resuelve problemas, también crea mundos."
