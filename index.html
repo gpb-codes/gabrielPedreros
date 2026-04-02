@@ -1,349 +1,847 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gabriel Pedreros | Portafolio</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel Pedreros | Dev</title>
+  <link rel="icon" href="img/gabriel.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/gabriel.png" type="image/png" />
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #18181f;
+      --border: rgba(255,255,255,0.07);
+      --border-accent: rgba(160,120,255,0.35);
+      --accent: #b57bff;
+      --accent2: #7b61ff;
+      --accent-rgb: 181,123,255;
+      --text: #f0efe8;
+      --muted: #8a8a96;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Cormorant Garamond', Georgia, serif;
+      --font-mono: 'DM Mono', monospace;
+    }
 
-    <!-- Fuentes -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    html { scroll-behavior: smooth; }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-display);
+      overflow-x: hidden;
+    }
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- =========================================================
-       HEADER (solo PC)
-  ========================================================= -->
-    <header class="header pc-only" aria-label="Barra superior de navegación">
-      <div class="container header-inner">
-        <div class="logo-container">
-          <h1 class="brand">ガブP</h1>
-        </div>
-        <nav class="nav" aria-label="Menú principal">
-          <a href="#about">Sobre mí</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#habilidades">Habilidades</a>
-        </nav>
+    p, .about-text p, .project-card p, .hobby-card p {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.2rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav { display: flex; gap: 2rem; }
+    .nav a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid-lines {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,123,255,0.09) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 32px; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      font-style: italic;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title .accent-word { color: var(--accent); font-style: normal; }
+    .hero-title .muted-word { color: var(--muted); font-style: normal; font-weight: 400; }
+
+    .hero-sub {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 400px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: var(--accent);
+      color: #120a1e;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(181,123,255,0.3);
+    }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: rgba(181,123,255,0.07); }
+
+    .socials {
+      display: flex; gap: 1.2rem;
+      margin-top: 4rem;
+    }
+    .socials a {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .socials a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 2.5rem; position: relative; }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-tag::before {
+      content: '//';
+      opacity: 0.5;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
+      line-height: 1.05;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--surface);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .project-card:hover { background: var(--surface2); }
+    .project-card:hover .project-card-arrow { opacity: 1; transform: translate(0,0); }
+
+    .project-num {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .project-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid rgba(181,123,255,0.3);
+      padding-bottom: 1px;
+      transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 0.7rem; }
+
+    .project-status {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .status-live { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+    .status-wip { background: var(--muted); }
+
+    /* ── ABOUT ── */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .about-text p strong { color: var(--text); font-weight: 700; }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2.5rem;
+    }
+    .stat-box {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 1px solid var(--border-accent);
+      z-index: 0;
+    }
+    .about-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(20%) contrast(1.05);
+      display: block;
+      position: relative; z-index: 1;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .skill-item {
+      background: var(--surface);
+      padding: 2rem 1.5rem;
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 0.75rem;
+      transition: background 0.2s;
+    }
+    .skill-item:hover { background: var(--surface2); }
+    .skill-item i {
+      font-size: 1.75rem;
+      color: var(--accent);
+    }
+    .skill-item span {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── HOBBIES ── */
+    .hobbies-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .hobby-card {
+      border: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .hobby-card:hover { border-color: var(--border-accent); }
+    .hobby-card i {
+      font-size: 1.4rem;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hobby-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .hobby-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── CV FAB ── */
+    .cv-btn {
+      position: fixed;
+      bottom: 5rem;
+      right: 1.5rem;
+      width: 50px; height: 50px;
+      background: var(--accent);
+      color: #120a1e;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      z-index: 200;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cv-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(181,123,255,0.35);
+    }
+
+    /* ── BOTTOM NAV ── */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      display: none;
+      background: rgba(10,10,15,0.95);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .bottom-nav a {
+      flex: 1;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 3px;
+      padding: 0.7rem 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.6rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .bottom-nav a:hover, .bottom-nav a.active { color: var(--accent); }
+    .bottom-nav a i { font-size: 1rem; }
+
+    /* ── DIVIDER LINE ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 0 2.5rem;
+      width: calc(100% - 5rem);
+    }
+
+    /* ── PARTICLES ── */
+    #particles-js {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+
+    /* ── RESPONSIVE ── */
+
+    /* Tablet grande: ≤1024px */
+    @media (max-width: 1024px) {
+      .header { padding: 1rem 1.75rem; }
+      .hero { padding: 8rem 1.75rem 4rem; }
+      section { padding: 5rem 1.75rem; }
+      .about-inner { gap: 2.5rem; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Tablet: ≤768px */
+    @media (max-width: 768px) {
+      .header { display: none; }
+      .bottom-nav { display: flex; }
+
+      .hero {
+        padding: 4.5rem 1.25rem 7rem;
+        min-height: 100svh;
+      }
+      .hero-title { font-size: clamp(2.6rem, 11vw, 4.5rem); }
+      .hero-sub { font-size: 0.82rem; max-width: 100%; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+      .socials { margin-top: 2.5rem; }
+
+      section { padding: 4rem 1.25rem 4rem; }
+      .section-title { font-size: clamp(1.8rem, 8vw, 2.8rem); margin-bottom: 2.5rem; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo-wrap { order: -1; max-width: 220px; margin: 0 auto; }
+      .about-photo-wrap::before { inset: -8px; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .skill-item { padding: 1.5rem 1.25rem; }
+
+      .hobbies-inner { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .hobby-card { padding: 1.5rem 1.25rem; }
+
+      footer { flex-direction: column; text-align: center; gap: 0.5rem; padding: 2rem 1.25rem 6rem; }
+      .cv-btn { bottom: 5.5rem; right: 1rem; width: 44px; height: 44px; font-size: 1rem; }
+    }
+
+    /* Móvil: ≤480px */
+    @media (max-width: 480px) {
+      .hero { padding: 4rem 1rem 7rem; }
+      .hero-title { font-size: clamp(2.2rem, 12vw, 3.2rem); line-height: 1.0; }
+      .hero-eyebrow { font-size: 0.65rem; }
+      .hero-sub { font-size: 0.78rem; }
+
+      section { padding: 3.5rem 1rem; }
+      .section-title { font-size: clamp(1.6rem, 9vw, 2.2rem); }
+      .section-tag { font-size: 0.65rem; }
+
+      .project-card { padding: 1.5rem; }
+      .project-card h3 { font-size: 1rem; }
+
+      .about-stats { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+      .stat-num { font-size: 2rem; }
+      .stat-box { padding: 1.25rem; }
+
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .hobbies-inner { grid-template-columns: 1fr; }
+
+      .socials { gap: 0.75rem; }
+      .socials a { width: 36px; height: 36px; font-size: 0.85rem; }
+
+      footer { padding: 2rem 1rem 6.5rem; }
+    }
+
+    /* Móvil muy pequeño: ≤360px */
+    @media (max-width: 360px) {
+      .hero-title { font-size: 2rem; }
+      .btn-primary, .btn-ghost { font-size: 0.72rem; padding: 0.65rem 1.25rem; }
+    }
+
+    /* ── ANIMATE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero-title   { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-ctas    { animation: fadeUp 0.6s 0.3s ease both; }
+    .socials      { animation: fadeUp 0.6s 0.4s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" aria-label="Navegación principal">
+    <div class="brand">ガブP.dev</div>
+    <nav class="nav">
+      <a href="#about">Sobre mí</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#hobbies">Hobbies</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Portada">
+    <div id="particles-js"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Disponible para proyectos</p>
+      <h1 class="hero-title">
+        <span class="muted-word">Hola, soy</span><br>
+        Gabriel<br>
+        <span class="accent-word">Pedreros.</span>
+      </h1>
+      <p class="hero-sub">
+        Tecnico en Programacion | futuro ingeniero informatico apasionado por las tecnologia de extremo a extremo: código, infraestructura, inteligecia artifiial y experiencias digitales inmersivas
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">Ver proyectos <i class="fas fa-arrow-down"></i></a>
+        <a href="assets/cv/CV Gabriel Pedreros.pdf" class="btn-ghost" download><i class="fas fa-file-download"></i> Descargar CV</a>
       </div>
-    </header>
+      <div class="socials">
+        <a href="https://www.instagram.com/gabrielpedreros.dev" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/gabriel-ignacio-pedreros-089365357/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://discord.gg/YmsVBmejB" target="_blank" rel="noopener" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/Gabr1elpedreros" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
 
-    <!-- =========================================================
-       HERO
-  ========================================================= -->
-    <section class="hero" id="hero" aria-label="Sección Hero">
-      <div id="particles-js"></div>
-      <div class="hero-inner">
-        <h1>&lt;Gabriel Pedreros/&gt;</h1>
-        <p>Estudiante de programación y futuro desarrollador web.</p>
+  <!-- PROJECTS -->
+  <section id="projects" aria-label="Proyectos">
+    <p class="section-tag">Trabajo</p>
+    <h2 class="section-title">Proyectos<br><span style="color:var(--muted)">seleccionados.</span></h2>
+    <div class="projects-grid">
 
-        <!-- Redes sociales -->
-        <div class="social-red">
-          <a
-            href="https://www.instagram.com/gabrielpedreros.dev"
-            class="icon ig"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/gabriel-ignacio-pedreros-089365357/"
-            class="icon linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://discord.gg/YmsVBmejB"
-            class="icon discord"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Discord"
-          >
-            <i class="fab fa-discord"></i>
-          </a>
-          <a
-            href="https://github.com/Gabr1elpedreros"
-            class="icon github"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
+      <div class="project-card">
+        <div class="project-status status-live" title="En vivo"></div>
+        <p class="project-num">01</p>
+        <h3>Fotografía Bazar el Oregon</h3>
+        <p>Sitio web moderno para Bazar el Oregon con carrusel de imágenes infinito, diseño responsive y enfoque en UX/UI.</p>
+        <div class="project-tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">UX/UI</span>
+        </div>
+        <a href="https://gabr1elpedreros.github.io/Bazar-el-oregon.fotos/" class="project-link" target="_blank">
+          Ver proyecto <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-status status-wip" title="En desarrollo"></div>
+        <p class="project-num">02</p>
+        <h3>E-Commerce</h3>
+        <p>Tienda en línea con carrito de compras, diseño responsivo y optimización SEO para máxima visibilidad.</p>
+        <div class="project-tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        </div>
+        <a href="#" class="project-link">Próximamente <i class="fas fa-clock"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-status status-wip"></div>
+        <p class="project-num">03</p>
+        <h3>Task Manager App</h3>
+        <p>App de gestión de tareas con autenticación de usuarios, base de datos en tiempo real y sincronización.</p>
+        <div class="project-tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Firebase</span>
+        </div>
+        <a href="#" class="project-link">Próximamente <i class="fas fa-clock"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-status status-wip"></div>
+        <p class="project-num">04</p>
+        <h3>Sitio Corporativo</h3>
+        <p>Web corporativa con diseño minimalista, completamente responsivo y optimizado para motores de búsqueda.</p>
+        <div class="project-tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        </div>
+        <a href="#" class="project-link">Próximamente <i class="fas fa-clock"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-status status-wip"></div>
+        <p class="project-num">05</p>
+        <h3>Red social para programadores DevSactum 1.1 web</h3>
+        <p>Sitio web moderno con un enfoque en programadores e informaticos para compartir socializar y buscar proyectos interesantes sobre areas de interes</p>
+        <div class="project-tags">
+          <span class="tag">React</span><span class="tag">Vite</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">...</span>
+        </div>
+        <a href="#" class="project-link">Próximamente <i class="fas fa-clock"></i></a>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="Sobre mí">
+    <p class="section-tag">Acerca de</p>
+    <h2 class="section-title">La persona<br><span style="color:var(--muted)">detrás del código.</span></h2>
+    <div class="about-inner">
+      <div class="about-text">
+        <p>Hola, soy <strong>Gabriel Pedreros</strong>, estudiante de ingenieria en informatica con una profunda pasión por el desarrollo web. Me impulsa la idea de crear productos digitales que sean tanto funcionales como visualmente atractivos.</p>
+        <p>Mi enfoque combina <strong>buen diseño visual</strong> con código limpio y eficiente. Busco siempre la intersección entre estética y usabilidad.</p>
+        <p>Actualmente estoy ampliando mis conocimientos en <strong>JavaScript moderno</strong>, bases de datos y tecnologías de backend para convertirme en un desarrollador web full-stack.</p>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Proyectos</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Año de escolar y practica</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">9</div>
+            <div class="stat-label">Tecnologías</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Ganas de aprender</div>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- =========================================================
-       PROYECTOS
-  ========================================================= -->
-    <section class="projects" id="projects" aria-label="Sección de proyectos">
-      <div class="projects-title">
-        <h2>Proyectos</h2>
-      </div>
-      <div class="projects-inner">
-        <!-- Proyecto 1 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Fotografía Bazar el Oregon</h3>
-            <p class="project-desc">
-              Desarrollo de un sitio web moderno y visualmente atractivo para
-              Bazar el Oregon, con carrusel de imágenes infinito y diseño
-              responsive. Tecnologías: HTML, CSS, JS y UX/UI.
-            </p>
-            <a
-              href="https://gabr1elpedreros.github.io/Bazar-el-oregon.fotos/"
-              class="button"
-              target="_blank"
-              >Ver más &gt;</a
-            >
-          </div>
-          <img src="img/image.png" alt="Proyecto 1" />
-        </div>
-
-        <!-- Proyecto 2 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Proyecto 2</h3>
-            <p class="project-desc">
-              E-commerce con carrito de compras, diseño responsivo y
-              optimización SEO. Tecnologías: HTML, CSS, JS.
-            </p>
-            <a href="#" class="button">Ver más &gt;</a>
-          </div>
-          <img src="img/proyecto2.png" alt="Proyecto 2" />
-        </div>
-
-        <!-- Proyecto 3 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Proyecto 3</h3>
-            <p class="project-desc">
-              App de gestión de tareas con autenticación y base de datos.
-              Tecnologías: HTML, CSS, JS, Firebase.
-            </p>
-            <a href="#" class="button">Ver más &gt;</a>
-          </div>
-          <img src="img/proyecto3.png" alt="Proyecto 3" />
-        </div>
-
-        <!-- Proyecto 4 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Proyecto 4</h3>
-            <p class="project-desc">
-              Sitio web corporativo con diseño minimalista, responsive y
-              optimizado para SEO. Tecnologías: HTML, CSS, JS.
-            </p>
-            <a href="#" class="button">Ver más &gt;</a>
-          </div>
-          <img src="img/proyecto4.png" alt="Proyecto 4" />
-        </div>
-
-        <!-- Proyecto 5 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Proyecto 5</h3>
-            <p class="project-desc">
-              Aplicación de trivia interactiva para aprender programación.
-              Tecnologías: HTML, CSS, JS.
-            </p>
-            <a href="#" class="button">Ver más &gt;</a>
-          </div>
-          <img src="img/proyecto5.png" alt="Proyecto 5" />
-        </div>
-
-        <!-- Proyecto 6 -->
-        <div class="project-card">
-          <div class="project-content">
-            <h3>Proyecto 6</h3>
-            <p class="project-desc">
-              Portafolio personal responsive con animaciones y efectos visuales
-              modernos. Incluye integración con redes sociales y CV descargable.
-              Tecnologías: HTML, CSS, JS.
-            </p>
-            <a href="#" class="button">Ver más &gt;</a>
-          </div>
-          <img src="img/proyecto6.png" alt="Proyecto 6" />
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-       SOBRE MÍ
-  ========================================================= -->
-    <section class="about" id="about" aria-label="Sección Sobre mí">
-      <div class="about-title"><h2>Sobre mí</h2></div>
-      <div class="about-inner">
-        <div class="about-content">
-          <p>
-            Hola, soy Gabriel Pedreros, apasionado estudiante de programación
-            con interés en desarrollo web. Mi objetivo es convertirme en
-            desarrollador web profesional y crear proyectos innovadores.
-          </p>
-        </div>
+      <div class="about-photo-wrap">
         <img src="img/gabriel.png" alt="Foto de Gabriel Pedreros" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- =========================================================
-       HABILIDADES
-  ========================================================= -->
-    <section
-      class="habilidades"
-      id="habilidades"
-      aria-label="Sección Habilidades"
-    >
-      <div class="habilidades-title"><h2>Habilidades</h2></div>
-      <ul class="habilidades-list">
-        <li><i class="fab fa-html5"></i>HTML</li>
-        <li><i class="fab fa-css3-alt"></i>CSS</li>
-        <li><i class="fab fa-js"></i>JavaScript</li>
-        <li><i class="fab fa-git-alt"></i>Git</li>
-        <li><i class="fas fa-database"></i>SQL</li>
-        <li><i class="fab fa-python"></i>Python</li>
-      </ul>
-    </section>
-
-    <!-- =========================================================
-       HOBBIES / INTERESES
-  ========================================================= -->
-    <section
-      class="hobbies"
-      id="hobbies"
-      aria-label="Sección Hobbies e Intereses"
-    >
-      <div class="hobbies-title"><h2>Hobbies & Intereses</h2></div>
-      <div class="hobbies-inner">
-        <div class="hobby-card">
-          <i class="fas fa-code"></i>
-          <h3>Programar</h3>
-          <p>Me apasiona crear proyectos web y aprender nuevas tecnologías.</p>
-        </div>
-        <div class="hobby-card">
-          <i class="fas fa-music"></i>
-          <h3>Música</h3>
-          <p>Escucho diversos géneros y disfruto crear canciones.</p>
-        </div>
-        <div class="hobby-card">
-          <i class="fas fa-gamepad"></i>
-          <h3>Videojuegos</h3>
-          <p>Me gustan los juegos de estrategia y aventura.</p>
-        </div>
-        <div class="hobby-card">
-          <i class="fas fa-microphone-alt"></i>
-          <h3>Cantar</h3>
-          <p>Me gusta expresar emociones y energía a través del canto.</p>
-        </div>
+  <!-- SKILLS -->
+  <section id="habilidades" aria-label="Habilidades">
+    <p class="section-tag">Stack</p>
+    <h2 class="section-title">Habilidades<br><span style="color:var(--muted)">técnicas.</span></h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <i class="fab fa-html5"></i>
+        <span>HTML5</span>
       </div>
-    </section>
+      <div class="skill-item">
+        <i class="fab fa-css3-alt"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-git-alt"></i>
+        <span>Git</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>SQL</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-php"></i>
+        <span>PHP</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-react"></i>
+        <span>React</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-windows"></i>
+        <span>windows</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-linux"></i>
+        <span>Linux</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- =========================================================
-       BOTÓN FLOTANTE CV
-  ========================================================= -->
-    <a
-      href="assets/cv/CV Gabriel Pedreros.pdf"
-      class="cv-btn"
-      target="_blank"
-      title="Descargar CV"
-      download
-    >
-      <i class="fas fa-file-download"></i>
-    </a>
+  <!-- HOBBIES -->
+  <section id="hobbies" aria-label="Hobbies">
+    <p class="section-tag">Personal</p>
+    <h2 class="section-title">Fuera del<br><span style="color:var(--muted)">teclado.</span></h2>
+    <div class="hobbies-inner">
+      <div class="hobby-card">
+        <i class="fas fa-code"></i>
+        <h3>Programar</h3>
+        <p>Me apasiona crear proyectos web y aprender nuevas tecnologías constantemente.</p>
+      </div>
+      <div class="hobby-card">
+        <i class="fas fa-music"></i>
+        <h3>Música</h3>
+        <p>Escucho diversos géneros y disfruto crear mis propias canciones.</p>
+      </div>
+      <div class="hobby-card">
+        <i class="fas fa-microphone-alt"></i>
+        <h3>Cantar</h3>
+        <p>Expreso emociones y energía a través del canto como forma de arte.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- =========================================================
-       NAV INFERIOR (solo móvil)
-  ========================================================= -->
-    <nav class="bottom-nav mobile-only">
-      <a href="#hero" class="nav-item"
-        ><i class="fas fa-home"></i><span>Inicio</span></a
-      >
-      <a href="#about" class="nav-item"
-        ><i class="fas fa-user"></i><span>Sobre mí</span></a
-      >
-      <a href="#projects" class="nav-item"
-        ><i class="fas fa-briefcase"></i><span>Proyectos</span></a
-      >
-      <a href="#habilidades" class="nav-item"
-        ><i class="fas fa-cogs"></i><span>Habilidades</span></a
-      >
-      <a href="#hobbies" class="nav-item"
-        ><i class="fas fa-heart"></i><span>Hobbies</span></a
-      >
-    </nav>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Gabriel Pedreros|GPB-INDUSTRIES| — <a href="https://github.com/Gabr1elpedreros" target="_blank">GitHub</a></p>
 
-    <!-- =========================================================
-       PARTICLES JS
-  ========================================================= -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: "#ffffff" },
-          shape: {
-            type: ["circle", "triangle", "polygon"],
-            stroke: { width: 0 },
-          },
-          opacity: {
-            value: 0.6,
-            random: true,
-            anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false },
-          },
-          size: {
-            value: 3,
-            random: true,
-            anim: { enable: true, speed: 2, size_min: 1, sync: false },
-          },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.3,
-            width: 1,
-          },
-          move: {
-            enable: true,
-            speed: 1.5,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-          },
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "grab" },
-            onclick: { enable: true, mode: "repulse" },
-            resize: true,
-          },
-          modes: {
-            grab: { distance: 140, line_linked: { opacity: 0.6 } },
-            repulse: { distance: 150, duration: 0.4 },
-            push: { particles_nb: 4 },
-          },
-        },
-        retina_detect: true,
+  </footer>
+
+  <!-- CV FAB -->
+  <a href="assets/cv/CV Gabriel Pedreros.pdf" class="cv-btn" title="Descargar CV" download>
+    <i class="fas fa-file-download"></i>
+  </a>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav" aria-label="Navegación móvil">
+    <a href="#hero" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
+    <a href="#about" class="nav-item"><i class="fas fa-user"></i><span>Sobre mí</span></a>
+    <a href="#projects" class="nav-item"><i class="fas fa-briefcase"></i><span>Proyectos</span></a>
+    <a href="#habilidades" class="nav-item"><i class="fas fa-cogs"></i><span>Skills</span></a>
+    <a href="#hobbies" class="nav-item"><i class="fas fa-heart"></i><span>Hobbies</span></a>
+  </nav>
+
+  <!-- PARTICLES JS -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 900 } },
+        color: { value: "#b57bff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.05, sync: false } },
+        size: { value: 2, random: true },
+        line_linked: { enable: true, distance: 160, color: "#b57bff", opacity: 0.08, width: 1 },
+        move: { enable: true, speed: 0.8, direction: "none", random: true, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "grab" }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 0.3 } } }
+      },
+      retina_detect: true
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.bottom-nav a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
