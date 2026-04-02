@@ -12,7 +12,7 @@ Apasionado por la intersección entre lógica y estética. Creo soluciones digit
 - *Lenguajes:* Python · JavaScript · HTML · CSS ·  REACT · VITE
 - *Frameworks:* Flask · TailwindCSS ·  FastAPI ·  MinIO ·  RabbitMQ
 - *Bases de datos:* MySQL PosgreSQL
-. *Herramientas:* Git · GitHub · Linux · VS Code
+- *Herramientas:* Git · GitHub · Linux · VS Code
 
 ---
 
